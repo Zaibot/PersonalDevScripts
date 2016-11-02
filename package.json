@@ -18,6 +18,8 @@
   "homepage": "https://github.com/Zaibot/PersonalDevScripts#readme",
   "bin": {
     "zds-update": "bin/update.js",
+    "zds-version": "bin/help.js",
+    "zds-help": "bin/help.js",
     "repo": "bin/repo.js"
   },
   "dependencies": {
