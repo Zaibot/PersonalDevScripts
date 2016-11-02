@@ -17,9 +17,12 @@
   },
   "homepage": "https://github.com/Zaibot/PersonalDevScripts#readme",
   "bin": {
-    "zds-update": "bin/update.js"
+    "zds-update": "bin/update.js",
+    "repo": "bin/repo.js"
   },
   "dependencies": {
+    "chalk": "^1.1.3",
+    "into": "^0.2.0",
     "shelljs": "^0.7.5"
   }
 }
