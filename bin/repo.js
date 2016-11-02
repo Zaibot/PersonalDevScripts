@@ -23,7 +23,7 @@ if (require.main === module) {
         console.log(chalk.red('No repository found.'));
       } else {
         shelljs.cd(x[0].dir);
-        shelljs.exec(process.argv[2]);
+        shelljs.exec(process.argv.slice(2));
       }
     });
 
