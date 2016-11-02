@@ -18,5 +18,8 @@
   "homepage": "https://github.com/Zaibot/PersonalDevScripts#readme",
   "bin": {
     "zds-update": "bin/update.js"
+  },
+  "dependencies": {
+    "shelljs": "^0.7.5"
   }
 }
