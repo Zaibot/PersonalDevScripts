@@ -1,5 +1,5 @@
 {
-  "name": "zaibot.devscripts",
+  "name": "zaibot.personaldevscripts",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Zaibot/DevScripts.git"
+    "url": "git+https://github.com/Zaibot/PersonalDevScripts.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Zaibot/DevScripts/issues"
+    "url": "https://github.com/Zaibot/PersonalDevScripts/issues"
   },
-  "homepage": "https://github.com/Zaibot/DevScripts#readme",
+  "homepage": "https://github.com/Zaibot/PersonalDevScripts#readme",
   "bin": {
     "zds-update": "bin/update.js"
   }
