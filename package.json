@@ -16,14 +16,17 @@
     "url": "https://github.com/Zaibot/PersonalDevScripts/issues"
   },
   "homepage": "https://github.com/Zaibot/PersonalDevScripts#readme",
+  "preferGlobal": "true",
   "bin": {
     "zds-update": "bin/update.js",
     "zds-version": "bin/help.js",
     "zds-help": "bin/help.js",
-    "repo": "bin/repo.js"
+    "repo": "bin/repo.js",
+    "iistome": "bin/iistome.js"
   },
   "dependencies": {
     "chalk": "^1.1.3",
+    "iis": "^0.2.0",
     "into": "^0.2.0",
     "shelljs": "^0.7.5"
   }
