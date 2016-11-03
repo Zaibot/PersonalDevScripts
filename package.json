@@ -24,7 +24,7 @@
     "zds-update": "bin/update.js",
     "zds-version": "bin/help.js",
     "zds-help": "bin/help.js",
-    "repo": "bin/repo/index.js",
+    "repo": "src/repo/index.js",
     "iistome": "bin/iistome.js",
     "cocostarter": "src/cocostarter/index.js",
     "chromium": "src/chromium/index.js",
