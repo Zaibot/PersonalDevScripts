@@ -27,7 +27,8 @@
     "repo": "bin/repo/index.js",
     "iistome": "bin/iistome.js",
     "cocostarter": "src/cocostarter/index.js",
-    "chromium": "src/chromium/index.js"
+    "chromium": "src/chromium/index.js",
+    "gst": "src/gst/index.js"
   },
   "dependencies": {
     "async": "^2.1.2",
