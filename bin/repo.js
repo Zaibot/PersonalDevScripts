@@ -23,8 +23,9 @@ if (require.main === module) {
       if (results.length === 0) {
         console.log(chalk.red('No repository found.'));
       } else {
-        shelljs.cd(x[0].dir);
-        shelljs.exec(process.argv.slice(2));
+        const cmd = process.argv.slice(2).map(x => x.indexOf(' ') > -1 ? `"${x.replace('"', '\\"')}"` : x).join(' ');
+        shelljs.cd(results[0]);
+        shelljs.exec(cmd);
       }
     }
   );
