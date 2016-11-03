@@ -13,8 +13,9 @@ if (require.main === module) {
     config.getConfigPaths(process.cwd(), (err, paths) => {
       paths.forEach(p => {
         console.log(chalk.cyan(p));
-        shelljs.exec(`"${c.edit}" "${p}"`);
+        shelljs.exec(`"${c.edit}" "${p}"`, { async: true }).unref();
       });
+      process.exit(0);
     });
   });
 }
