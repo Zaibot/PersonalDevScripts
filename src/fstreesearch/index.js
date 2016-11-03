@@ -18,10 +18,10 @@ function findFolders(path, filter, cb) {
 function getFolderPaths(target) {
   const names = path.resolve(target).split(path.sep);
 
-  var current = names[0];
-  const folders = names.slice(1).map(x => {
-    return (current = path.normalize(path.join(current, x)))
+  var current = '';
+  const folders = names.map(x => {
+    return (current = path.normalize(path.join(current, x, '.\\')))
   });
-
+  
   return folders;
 }
