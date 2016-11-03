@@ -9,9 +9,10 @@ if (require.main === module) {
   console.log(`Version ${require('../package.json').version}`);
   console.log(`Commit ${require('../package.json').gitHead}`);
   console.log(`Commands:`);
-  const dic = require('../package.json').bin;
-  Object.keys(dic).forEach(x => {
-    console.log(` - ${pad(' '.repeat(15), x)} ${require(`../${dic[x]}`).help.description}`);
+  
+  const { getEntryPoints } = require('../src/zds/packages');
+  getEntryPoints().forEach(x => {
+    console.log(` - ${pad(' '.repeat(15), x.name)} ${x.help.description}`);
   });
 }
 
