@@ -1,3 +1,5 @@
+#! /usr/bin/env node
+
 exports.help = {
   description: 'Compare current repo to starter.'
 };
