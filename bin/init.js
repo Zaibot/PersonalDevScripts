@@ -5,7 +5,7 @@ exports.help = {
 };
 exports.defaultConfig = {
   vlc: 'C:/',
-  edit: 'C:/'
+  edit: 'notepad'
 };
 
 if (require.main === module) {
