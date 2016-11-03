@@ -25,7 +25,8 @@
     "zds-help": "bin/help.js",
     "repo": "bin/repo.js",
     "iistome": "bin/iistome.js",
-    "cocostarter": "src/cocostarter/index.js"
+    "cocostarter": "src/cocostarter/index.js",
+    "chromium": "src/chromium/index.js"
   },
   "dependencies": {
     "async": "^2.1.2",
