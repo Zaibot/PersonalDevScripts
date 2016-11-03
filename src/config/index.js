@@ -5,6 +5,7 @@ const fsts = require('../fstreesearch');
 const { isConfigFolder } = require('./search');
 
 exports.readConfiguration = readConfiguration;
+exports.getConfigPaths = getConfigPaths;
 
 function readConfiguration(path, cb) {
   getConfigPaths(path, (err, results) => {

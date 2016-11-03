@@ -19,6 +19,7 @@
   "preferGlobal": "true",
   "bin": {
     "zds-init": "bin/init.js",
+    "zds-edit": "bin/edit.js",
     "zds-view": "bin/view.js",
     "zds-update": "bin/update.js",
     "zds-version": "bin/help.js",
