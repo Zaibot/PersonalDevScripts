@@ -10,7 +10,9 @@ const fsts = require('../fstreesearch');
 exports.find = function(path, cb) {
   fsts.find(
     path,
-    (path, next) => isRepository(path, (err, res) => next(err, res.found)),
+    (path, next) => {
+      return isRepository(path, (err, res) => next(err, res.found))
+    },
     (err, results) => {
       results.reverse();
       if (results.length === 0) {
