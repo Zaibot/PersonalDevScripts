@@ -21,7 +21,9 @@ if (require.main === module) {
     (err, results) => {
       results.reverse();
       if (results.length === 0) {
-        console.log(chalk.red('No repository found.'));
+        console.log(chalk.red(`No repository found.`));
+      } else if (process.argv.length <= 2) {
+        console.log(chalk.yellow(`Specify a command: repo [command] [args]*`));
       } else {
         const cmd = process.argv.slice(2).map(x => x.indexOf(' ') > -1 ? `"${x.replace('"', '\\"')}"` : x).join(' ');
         shelljs.cd(results[0]);
