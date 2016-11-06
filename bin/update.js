@@ -1,6 +1,8 @@
 #! /usr/bin/env node
 exports.help = { description: 'Install new version DevScripts.' };
 
+const gitUrl = 'https://github.com/zaibot/PersonalDevScripts.git';
+
 if (require.main === module) {
   const chalk = require('chalk');
   const shell = require("shelljs");
@@ -9,7 +11,6 @@ if (require.main === module) {
   console.log(chalk.yellow(`Checking latest version of PersonalDevScripts...`));
 
   const currentVersion = require('../package.json').gitHead;
-  const gitUrl = require('../package.json').repository.url;
   getLatestVersion(gitUrl, (err, serverVersion) => {
     if (currentVersion === serverVersion) {
       console.log(chalk.green(`Up to date`))
@@ -18,7 +19,7 @@ if (require.main === module) {
       console.log(chalk.cyan(`Server: ${serverVersion}`));
       console.log(``);
       console.log(chalk.yellow(`Installing latest version of PersonalDevScripts...`));
-      exec("npm install -g Zaibot/PersonalDevScripts", (err, stdout, stderr) => {
+      exec(`npm install -g ${gitUrl}`, (err, stdout, stderr) => {
         if (stderr) {
           console.log(chalk.red(stderr));
         }
