@@ -28,6 +28,7 @@
     "iistome": "bin/iistome.js",
     "cocostarter": "src/cocostarter/index.js",
     "chromium": "src/chromium/index.js",
+    "nguid": "src/nguid/index.js",
     "gst": "src/gst/index.js"
   },
   "dependencies": {
@@ -35,6 +36,7 @@
     "chalk": "^1.1.3",
     "iis": "^0.2.0",
     "into": "^0.2.0",
-    "shelljs": "^0.7.5"
+    "shelljs": "^0.7.5",
+    "uuid": "^2.0.3"
   }
 }
