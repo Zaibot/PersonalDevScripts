@@ -12,9 +12,14 @@ if (require.main === module) {
   const config = require('../config');
   const process = require('process');
   const path = require('path');
-  const shelljs = require('shelljs');
+  const { find } = require('../repo/find');
+  const child_process = require('child_process');
 
   config.readConfiguration(process.cwd(), function(err, config) {
-    shelljs.exec(`repo "${config.codecompare}" ".\\" "${path.resolve(config.starter)}"`);
+    find(process.cwd(), (err, pathRepository) => {
+      if (err) return console.log(chalk.red(err.message));
+      console.log('Opening Code Compare...');
+      child_process.spawn(`"${config.codecompare}" ".\\" "${path.resolve(config.starter)}"`, { cwd: pathRepository, shell: true, detached: true, stdio: 'ignore' }).unref();
+    });
   });
 }
