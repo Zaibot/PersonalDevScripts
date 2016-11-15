@@ -8,14 +8,13 @@ if (require.main === module) {
   const config = require('../src/config');
   const process = require('process');
   const chalk = require('chalk');
-  const shelljs = require('shelljs');
+  const child_process = require('child_process');
   config.readConfiguration(process.cwd(), (err, c) => {
     config.getConfigPaths(process.cwd(), (err, paths) => {
       paths.forEach(p => {
         console.log(chalk.cyan(p));
-        shelljs.exec(`"${c.edit}" "${p}"`, { async: true }).unref();
+        child_process.spawn(`"${c.edit}" "${p}"`, { shell: true, detached: true, stdio: 'ignore' }).unref();
       });
-      process.exit(0);
     });
   });
 }
