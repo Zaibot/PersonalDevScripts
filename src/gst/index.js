@@ -18,7 +18,8 @@ if (require.main === module) {
   config.readConfiguration(process.cwd(), function(err, config) {
     find(process.cwd(), (err, pathRepository) => {
       if (err) return console.log(chalk.red(err.message));
-      child_process.exec(`"${path.resolve(config.sourcetree)}" -f "${path.resolve(pathRepository)}" log`, { shell: true }).unref();
+      console.log('Opening SourceTree...');
+      child_process.spawn(`"${path.resolve(config.sourcetree)}" -f "${path.resolve(pathRepository)}" log`, { shell: true, detached: true, stdio: 'ignore' }).unref();
     })
   });
 }
