@@ -12,6 +12,7 @@ if (require.main === module) {
   const config = require('../config');
   const process = require('process');
   const path = require('path');
+  const chalk = require('chalk');
   const { find } = require('../repo/find');
   const child_process = require('child_process');
 
