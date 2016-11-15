@@ -31,6 +31,7 @@
     "nguid": "src/nguid/index.js",
     "gst": "src/gst/index.js",
     "grl": "src/grl/index.js",
+    "gro": "src/gro/index.js",
   },
   "dependencies": {
     "async": "^2.1.2",
