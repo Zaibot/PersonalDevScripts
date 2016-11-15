@@ -32,6 +32,7 @@
     "gst": "src/gst/index.js",
     "grl": "src/grl/index.js",
     "gro": "src/gro/index.js",
+    "gru": "src/gru/index.js"
   },
   "dependencies": {
     "async": "^2.1.2",
