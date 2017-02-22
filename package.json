@@ -30,6 +30,7 @@
     "chromium": "src/chromium/index.js",
     "nguid": "src/nguid/index.js",
     "gst": "src/gst/index.js",
+    "gkr": "src/gkr/index.js",
     "grl": "src/grl/index.js",
     "gro": "src/gro/index.js",
     "gru": "src/gru/index.js"
