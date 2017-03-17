@@ -33,7 +33,8 @@
     "gkr": "src/gkr/index.js",
     "grl": "src/grl/index.js",
     "gro": "src/gro/index.js",
-    "gru": "src/gru/index.js"
+    "gru": "src/gru/index.js",
+    "addtslint": "src/addtslint/index.js"
   },
   "dependencies": {
     "async": "^2.1.2",
