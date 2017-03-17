@@ -35,6 +35,6 @@ if (require.main === module) {
     // Write tslint config
     fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(defaultsTslint))
     // Install tslint
-    child_process.spawn(`npm i --save-dev zaibot/tslint-preset`, { shell: true, stdio: 'inherit' });
+    child_process.spawn(`npm i --save-dev tslint zaibot/tslint-preset`, { shell: true, stdio: 'inherit' });
   });
 }
