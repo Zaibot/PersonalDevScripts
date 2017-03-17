@@ -23,7 +23,18 @@ if (require.main === module) {
   const args = process.argv.slice(2).map(x => x.indexOf(' ') > -1 ? `"${x.replace('"', '\\"')}"` : x).join(' ');
 
   config.readConfiguration(process.cwd(), function(err, config) {
+    // Update package info
+    const p = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json')));
+    p['scripts']["lint:ts"] = "tslint -c tslint.json src/**/*.tsx";
+    p['scripts']["lint:tsfix"] = "tslint -c tslint.json src/**/*.tsx --fix";
+    if (!p['scripts']["lint"]) {
+      p['scripts']["lint"] = "npm run lint:ts";
+    }
+    fs.writeFileSync(path.resolve(process.cwd(), 'package.json'), JSON.stringify(p));
+    console.log('package.json configured for scripts ./src/**/*.tsx')
+    // Write tslint config
     fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(defaultsTslint))
+    // Install tslint
     child_process.spawn(`npm i --save-dev zaibot/tslint-preset`, { shell: true, stdio: 'inherit' });
   });
 }
