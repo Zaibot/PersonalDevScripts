@@ -25,8 +25,8 @@ if (require.main === module) {
   config.readConfiguration(process.cwd(), function(err, config) {
     // Update package info
     const p = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'package.json')));
-    p['scripts']["lint:ts"] = "tslint -c tslint.json src/**/*.tsx";
-    p['scripts']["lint:tsfix"] = "tslint -c tslint.json src/**/*.tsx --fix";
+    p['scripts']["lint:ts"] = "tslint -c tslint.json src/**/*.ts src/**/*.tsx";
+    p['scripts']["lint:tsfix"] = "tslint -c tslint.json src/**/*.ts src/**/*.tsx --fix";
     if (!p['scripts']["lint"]) {
       p['scripts']["lint"] = "npm run lint:ts";
     }
