@@ -30,6 +30,9 @@ if (require.main === module) {
     if (!p['scripts']["lint"]) {
       p['scripts']["lint"] = "npm run lint:ts";
     }
+    if (!p['scripts']["lint:fix"]) {
+      p['scripts']["lint:fix"] = "npm run lint:tsfix";
+    }
     fs.writeFileSync(path.resolve(process.cwd(), 'package.json'), JSON.stringify(p));
     console.log('package.json configured for scripts ./src/**/*.tsx')
     // Write tslint config
