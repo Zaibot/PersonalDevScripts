@@ -35,7 +35,7 @@
     "gro": "src/gro/index.js",
     "gru": "src/gru/index.js",
     "addtslint": "src/addtslint/index.js",
-    "applytsconfig": "src/addtslint/index.js"
+    "applytsconfig": "src/applytsconfig/index.js"
   },
   "dependencies": {
     "async": "^2.1.2",
