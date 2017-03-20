@@ -39,6 +39,6 @@ if (require.main === module) {
         const p = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'tsconfig.json')));
         Object.assign(p, defaultConfig);
         Object.assign(p.compilerOptions, defaultCompilerOptions);
-        fs.writeFileSync(path.resolve(process.cwd(), 'tsconfig.json'), JSON.stringify(p));
+        fs.writeFileSync(path.resolve(process.cwd(), 'tsconfig.json'), JSON.stringify(p, null, 2));
     });
 }

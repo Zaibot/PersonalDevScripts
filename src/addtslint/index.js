@@ -33,10 +33,10 @@ if (require.main === module) {
     if (!p['scripts']["lint:fix"]) {
       p['scripts']["lint:fix"] = "npm run tslint:fix";
     }
-    fs.writeFileSync(path.resolve(process.cwd(), 'package.json'), JSON.stringify(p));
-    console.log('package.json configured for scripts ./src/**/*.tsx')
+    fs.writeFileSync(path.resolve(process.cwd(), 'package.json'), JSON.stringify(p, null, 2));
+    console.log('package.json configured for scripts ./src/**/*.tsx');
     // Write tslint config
-    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(defaultsTslint))
+    fs.writeFileSync(path.resolve(process.cwd(), 'tslint.json'), JSON.stringify(defaultsTslint, null, 2));
     // Install tslint
     child_process.spawn(`npm i --save-dev tslint zaibot/tslint-preset`, { shell: true, stdio: 'inherit' });
   });
