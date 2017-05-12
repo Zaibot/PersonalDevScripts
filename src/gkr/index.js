@@ -20,7 +20,7 @@ if (require.main === module) {
     find(process.cwd(), (err, pathRepository) => {
       if (err) return console.log(chalk.red(err.message));
       console.log('Opening GIT Kraken...');
-      const cmd = `"${config.gitkraken}"  --processStart "gitkraken.exe" --process-start-args "-p "${path.resolve(pathRepository)}"`;
+      const cmd = `"${config.gitkraken}"  --processStart "gitkraken.exe" --process-start-args "-p ${path.resolve(pathRepository)}"`;
       // console.error(cmd);
       child_process.spawn(cmd, { shell: true, detached: true, stdio: 'ignore' }).unref();
     })
