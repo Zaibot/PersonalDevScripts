@@ -34,6 +34,7 @@
     "grl": "src/grl/index.js",
     "gro": "src/gro/index.js",
     "gru": "src/gru/index.js",
+    "glog": "src/glog/index.js",
     "addtslint": "src/addtslint/index.js",
     "applytsconfig": "src/applytsconfig/index.js"
   },
@@ -43,6 +44,7 @@
     "iis": "^0.2.0",
     "into": "^0.2.0",
     "matchdep": "^1.0.1",
+    "nodegit": "^0.18.3",
     "prompt": "^1.0.0",
     "shelljs": "^0.7.5",
     "uuid": "^2.0.3"
