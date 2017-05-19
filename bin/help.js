@@ -1,4 +1,4 @@
-#! /usr/bin/env node
+#! /usr/bin/env node --harmony-async-await
 exports.help = { description: 'This help message.' };
 
 if (require.main === module) {
