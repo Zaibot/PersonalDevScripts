@@ -28,7 +28,7 @@
     "applytsconfig": "src/applytsconfig/index.js",
     "chromium": "src/chromium/index.js",
     "cocostarter": "src/cocostarter/index.js",
-    "gcasing": "bin/casing.sh",
+    "gcasing": "bin/casing.js",
     "gkr": "src/gkr/index.js",
     "glog": "src/glog/index.js",
     "grl": "src/grl/index.js",
@@ -41,7 +41,7 @@
   },
   "dependencies": {
     "async": "^2.1.2",
-    "chalk": "^1.1.3",
+    "chalk": "^2.1.0",
     "iis": "^0.2.0",
     "into": "^0.2.0",
     "matchdep": "^1.0.1",
