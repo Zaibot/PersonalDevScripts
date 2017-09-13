@@ -6,11 +6,18 @@ const gitUrl = 'https://github.com/zaibot/PersonalDevScripts.git';
 if (require.main === module) {
   const chalk = require('chalk');
   const shell = require("shelljs");
+  const url = require('url');
   const { exec } = require('child_process');
 
   console.log(chalk.yellow(`Checking latest version of PersonalDevScripts...`));
 
-  const currentVersion = require('../package.json').gitHead;
+  const resolved = require('../package.json')._resolved;
+  const hash = url.parse(resolved).hash;
+  const currentVersion = hash && hash.substring(1);
+  if (!currentVersion) {
+    console.error(chalk.red(`Unable to resolve current version`))
+    return;
+  }
   getLatestVersion(gitUrl, (err, serverVersion) => {
     if (currentVersion === serverVersion) {
       console.log(chalk.green(`Up to date`))
