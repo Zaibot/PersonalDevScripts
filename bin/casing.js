@@ -14,7 +14,7 @@ async function main() {
     if (cache.has(p)) {
       return cache.get(p);
     } else {
-      const l = await silent(`ls -a ${p}`);
+      const l = await silent(`ls -a "${p}"`);
       cache.set(p, l);
       return l;
     }
@@ -29,12 +29,12 @@ async function main() {
     const actual = (await getList(folder)).map((cur) => path.basename(cur));
     const nameGit = path.basename(file);
     const nameFs = actual.reduce((state, cur) => cur.toLowerCase() === nameGit.toLowerCase() ? cur : state, null);
-    if (nameFs && nameGit) { 
+    if (nameFs && nameGit) {
       if (nameFs !== nameGit) {
-        try{
+        try {
           console.log(chalk.yellowBright(`correcting ${path.join(folder, nameFs)}`));
           await run(`git mv "${path.join(folder, nameGit)}" "${path.join(folder, nameFs)}"`);
-        }catch (ex) {
+        } catch (ex) {
           console.log(chalk.redBright(`failed ${file}: ${ex}`));
         }
       }
@@ -44,10 +44,17 @@ async function main() {
 }
 
 function silent(cmd) {
+  const chalk = require('chalk');
   const child_process = require('child_process');
   return new Promise((resolve, reject) => {
-    child_process.exec(cmd, (err, stdout, stderr) => {
-      if (err) { reject(Error(`error code ${err.code}`)); } else { resolve(stdout.trim().split(/\r?\n/)) }
+    child_process.exec(cmd, { maxBuffer: 1024 * 1024 }, (err, stdout, stderr) => {
+      if (err) {
+        console.error(chalk.redBright(cmd));
+        console.error(chalk.gray(err));
+        reject(Error(`error code ${err.code}`));
+      } else {
+        resolve(stdout.trim().split(/\r?\n/))
+      }
     });
   });
 }
