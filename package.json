@@ -24,6 +24,7 @@
     "zds-update": "bin/update.js",
     "zds-version": "bin/help.js",
     "zds-help": "bin/help.js",
+    "archive": "src/archive/index.js",
     "addtslint": "src/addtslint/index.js",
     "applytsconfig": "src/applytsconfig/index.js",
     "chromium": "src/chromium/index.js",
@@ -40,9 +41,10 @@
     "repo": "src/repo/index.js"
   },
   "dependencies": {
-    "async": "^2.1.2",
+    "async": "^2.5.0",
     "chalk": "^2.1.0",
     "iis": "^0.2.0",
+    "inquirer": "^3.2.3",
     "into": "^0.2.0",
     "matchdep": "^1.0.1",
     "nodegit": "^0.18.3",
