@@ -34,7 +34,7 @@ if (require.main === module) {
                 const date = new Date().toISOString().substring(0, 10).replace('-', '');
                 const source = path.join(cwd, name, '*');
                 const target = path.join(cwd, `${name}.7z`);
-                await run(path.resolve(config['7zip']), ['a', '-r', '-sdel', '-mmt', '--', target, source]);
+                await run(path.resolve(config['7zip']), ['a', '-r', '-sdel', '-mmt', '-mx=1', '--', target, source]);
                 const folder = path.join(cwd, name);
                 fs.rmdirSync(folder);
             }
