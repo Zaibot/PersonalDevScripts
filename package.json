@@ -48,6 +48,7 @@
     "into": "^0.2.0",
     "matchdep": "^1.0.1",
     "nodegit": "^0.18.3",
+    "progress": "^2.0.0",
     "prompt": "^1.0.0",
     "shelljs": "^0.7.5",
     "uuid": "^2.0.3"
