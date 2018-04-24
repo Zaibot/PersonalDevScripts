@@ -11,6 +11,7 @@ if (require.main === module) {
 async function main() {
   const chalk = require('chalk');
   const ProgressBar = require('progress');
+  const trueCasePath = require('true-case-path');
   try {
     const cache = new Map();
     const getDirectoryContents = async (p, output) => {
@@ -26,6 +27,7 @@ async function main() {
         return l;
       }
     };
+    const pathRepo = process.cwd();
     const fs = require('fs');
     const path = require('path');
     const files = await silent(`git ls-files`);
@@ -36,15 +38,13 @@ async function main() {
     };
     output.log(chalk.cyanBright(`Correcting casings in GIT`));
     for (const file of files) {
-      const folder = path.resolve(path.dirname(file));
-      const actual = (await getDirectoryContents(folder, output)).map((cur) => path.basename(cur));
-      const nameGit = path.basename(file);
-      const nameFs = actual.reduce((state, cur) => cur.toLowerCase() === nameGit.toLowerCase() ? cur : state, null);
+      const nameGit = file;
+      const nameFs = trueCasePath(nameGit);
       if (nameFs && nameGit) {
         if (nameFs !== nameGit) {
           try {
-            output.log(chalk.yellowBright(`correcting ${path.join(folder, nameFs)}`));
-            await run(`git mv "${path.join(folder, nameGit)}" "${path.join(folder, nameFs)}"`, output);
+            output.log(chalk.yellowBright(`correcting ${nameFs}`));
+            await run(`git mv "${nameGit}" "${nameFs}"`, output);
           } catch (ex) {
             output.log(chalk.redBright(`failed ${file}: ${ex}`));
           }
@@ -52,8 +52,10 @@ async function main() {
       }
       bar.tick({ folder: path.dirname(file) });
     }
+    console.log();
     console.log(chalk.cyanBright(`Done.`));
   } catch (ex) {
+    console.log();
     console.error(chalk.redBright(ex.toString()));
   }
 }
@@ -91,8 +93,8 @@ function silent(cmd, output) {
   });
 }
 
-async function run(cmd) {
+async function run(cmd, output) {
   const chalk = require('chalk');
-  console.error(chalk.gray(cmd));
+  output.log(chalk.gray(cmd));
   return await silent(cmd);
 }
