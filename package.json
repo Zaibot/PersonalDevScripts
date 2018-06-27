@@ -30,6 +30,7 @@
     "chromium": "src/chromium/index.js",
     "cocostarter": "src/cocostarter/index.js",
     "gcasing": "bin/casing.js",
+    "gdangling": "bin/dangling.js",
     "gkr": "src/gkr/index.js",
     "glog": "src/glog/index.js",
     "grl": "src/grl/index.js",
